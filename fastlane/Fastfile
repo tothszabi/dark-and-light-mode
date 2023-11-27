@@ -33,7 +33,15 @@ platform :ios do
     )
     
   ensure
-    puts "xcresult: #{lane_context[SharedValues::SCAN_GENERATED_XCRESULT_PATH]}"
+    puts "xcresult path: #{lane_context[SharedValues::SCAN_GENERATED_XCRESULT_PATH]}"
     sh "envman add --key BITRISE_XCRESULT_PATH --value \"#{lane_context[SharedValues::SCAN_GENERATED_XCRESULT_PATH]}\""
+  end
+
+  desc "Random test"
+  lane :random_test do |values|
+    puts "Hello world"
+
+    parameter  = values[:param]
+    puts parameter
   end
 end

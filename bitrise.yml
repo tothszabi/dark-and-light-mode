@@ -1,0 +1,14 @@
+---
+format_version: '13'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+
+workflows:
+  fastlane:
+    steps:
+    - fastlane@3.4:
+        title: Upload to TestFlight
+        inputs:
+        - verbose_log: 'yes'
+        - enable_cache: 'no'
+        - lane: random_test "param:$TT_PRIVATE_KEY"
